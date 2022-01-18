@@ -39,9 +39,9 @@ void insertSort(int arr[], int sizeOfElem) {
 
 
 
-    /*  int key = arr[i];
-      int j = i - 1;
-      *//* Move elements of arr[0..i-1], that are
+/*  int key = arr[i];
+  int j = i - 1;
+  *//* Move elements of arr[0..i-1], that are
         greater than key, to one position ahead
         of their current position *//*
         while (j >= 0 && arr[j] > key) {

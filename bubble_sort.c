@@ -1,7 +1,5 @@
 #include "func.h"
 
-
-
 /** \file
  *
  */

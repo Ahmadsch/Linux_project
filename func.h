@@ -1,18 +1,13 @@
-//
-// Created by ahmad on 12/01/2022.
-//
-
 #ifndef LINUX_PROJECT_FUNC_H
 #define LINUX_PROJECT_FUNC_H
-
 
 typedef enum {
     MERGE_SORT, QUICK_SORT, BUBBLE_SORT, INSERTION_SORT
 } SORT_MODE;
 
 typedef enum {
-    ARRAY_SIZE_8 = 8, ARRAY_SIZE_16 = 16, ARRAY_SIZE_64 = 64
-} SIZE_MODE;
+    ASC, DEC, RAND
+} DATA_SET;
 
 
 //merge sort
@@ -31,8 +26,22 @@ void insertSort(int arr[], int sizeOfElem);
 void bubbleSort(int arr[], int sizeOfElem);
 
 
-//
+//main func
 void swap(int *x, int *y);
+
+void createRandomNumber(int sizeOfArray, int arr[], DATA_SET dataSet);
+
+
+//
+void callRunMeasureFunctions();
+
+void callSortFunctions();
+
+//
+double measureCpuRunTime(void (*pFunction)(int [], int, int), int arr[], int sizeOfArr, SORT_MODE sortMode);
+
+//
+void comparison();
 
 
 #endif //LINUX_PROJECT_FUNC_H

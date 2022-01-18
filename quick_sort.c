@@ -2,8 +2,6 @@
 #include "func.h"
 
 
-
-
 int partition(int arr[], int low, int high);
 
 
