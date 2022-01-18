@@ -28,8 +28,6 @@ void callSortFunctions() {
     prepareSortFunctions(MERGE_SORT, ARRAY_SIZE_64);
     prepareSortFunctions(INSERTION_SORT, ARRAY_SIZE_64);
     prepareSortFunctions(BUBBLE_SORT, ARRAY_SIZE_64);
-
-
 }
 
 void prepareSortFunctions(SORT_MODE sortMode, SIZE_MODE sizeMode) {

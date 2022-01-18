@@ -32,11 +32,67 @@ double timeSpentBubble;
 
 void resetArrays();
 
-double measureCpuRunTime(void (*pFunction)(int [], int, int), int arr[], int sizeOfArr, SORT_MODE sortMode);
-
 void initArray(DATA_SET dataSet);
 
 void printResults(int arraySize);
+
+void runMeasure_8();
+
+void runMeasure_32();
+
+void runMeasure_128();
+
+void runMeasure_512();
+
+void runMeasure_2048();
+
+void runMeasure_8192();
+
+void runMeasure_32768();
+
+
+void callRunMeasureFunctions() {
+    resetArrays();
+
+    printf("accenting...\n");
+    initArray(ASC);
+    runMeasure_8();
+    runMeasure_32();
+    runMeasure_128();
+    runMeasure_512();
+    runMeasure_2048();
+    runMeasure_8192();
+    runMeasure_32768();
+    printf("...\n");
+
+    resetArrays();
+
+    printf("decanting...\n");
+    initArray(DEC);
+    runMeasure_8();
+    runMeasure_32();
+    runMeasure_128();
+    runMeasure_512();
+    runMeasure_2048();
+    runMeasure_8192();
+    runMeasure_32768();
+
+    printf("...\n");
+
+    resetArrays();
+
+    printf("random...\n");
+    initArray(RAND);
+    runMeasure_8();
+    runMeasure_32();
+    runMeasure_128();
+    runMeasure_512();
+    runMeasure_2048();
+    runMeasure_8192();
+    runMeasure_32768();
+    printf("...\n");
+
+}
 
 void initArray(DATA_SET dataSet) {
     createRandomNumber(ARRAY_SIZE_8, array_8, dataSet);
@@ -231,51 +287,6 @@ void runMeasure_32768() {
     printResults(ARRAY_SIZE_32768);
 }
 
-
-void callRunMeasureFunctions() {
-    resetArrays();
-
-    printf("accenting...\n");
-    initArray(ASC);
-    runMeasure_8();
-    runMeasure_32();
-    runMeasure_128();
-    runMeasure_512();
-    runMeasure_2048();
-    runMeasure_8192();
-    runMeasure_32768();
-    printf("...\n");
-
-    resetArrays();
-
-    printf("decanting...\n");
-    initArray(DEC);
-    runMeasure_8();
-    runMeasure_32();
-    runMeasure_128();
-    runMeasure_512();
-    runMeasure_2048();
-    runMeasure_8192();
-    runMeasure_32768();
-
-    printf("...\n");
-
-    resetArrays();
-
-    printf("random...\n");
-    initArray(RAND);
-    runMeasure_8();
-    runMeasure_32();
-    runMeasure_128();
-    runMeasure_512();
-    runMeasure_2048();
-    runMeasure_8192();
-    runMeasure_32768();
-    printf("...\n");
-
-}
-
-
 void printResults(int arraySize) {
 
     printf("Array Size: %d\n", arraySize);
@@ -292,23 +303,6 @@ void printResults(int arraySize) {
     printf("|   bubble   | %-9.3f |\n", timeSpentBubble);
     printf("+------------+-----------+\n\n");
 }
-
-
-/*     printf("Array Size: %d\n",arraySize);
-    printf("__________________________________________________________\n");
-    printf("\t      |\tASC\t |\tDEC\t |\tRAND\t |\n");
-    printf("______________|__________|_______________|_______________|\n");
-    printf("     quick    |\t%f |\t%f |\t%f | \n", timeSpentQuick,timeSpentQuick,timeSpentQuick);
-    printf("______________|__________|_______________|_______________|\n");
-    printf("     merge    |\t%f |\t%f |\t%f | \n", timeSpentMerge,timeSpentMerge,timeSpentMerge);
-    printf("______________|__________|_______________|_______________|\n");
-    printf("     insert   |\t%f |\t%f |\t%f | \n", timeSpentInsert,timeSpentInsert,timeSpentInsert);
-    printf("______________|__________|_______________|_______________|\n");
-    printf("     bubble   |\t%f |\t%f |\t%f | \n", timeSpentBubble,timeSpentBubble,timeSpentBubble);
-    printf("______________|__________|_______________|_______________|\n");
-    printf("\n");*/
-
-
 
 void resetArrays() {
     memset(array_8, 0, sizeof(array_8));
@@ -394,3 +388,17 @@ void resetArrays() {
     printResults(timeSpentQuick, timeSpentMerge, timeSpentInsert, timeSpentBubble, ARRAY_SIZE_32768);
 
 */
+
+/*     printf("Array Size: %d\n",arraySize);
+    printf("__________________________________________________________\n");
+    printf("\t      |\tASC\t |\tDEC\t |\tRAND\t |\n");
+    printf("______________|__________|_______________|_______________|\n");
+    printf("     quick    |\t%f |\t%f |\t%f | \n", timeSpentQuick,timeSpentQuick,timeSpentQuick);
+    printf("______________|__________|_______________|_______________|\n");
+    printf("     merge    |\t%f |\t%f |\t%f | \n", timeSpentMerge,timeSpentMerge,timeSpentMerge);
+    printf("______________|__________|_______________|_______________|\n");
+    printf("     insert   |\t%f |\t%f |\t%f | \n", timeSpentInsert,timeSpentInsert,timeSpentInsert);
+    printf("______________|__________|_______________|_______________|\n");
+    printf("     bubble   |\t%f |\t%f |\t%f | \n", timeSpentBubble,timeSpentBubble,timeSpentBubble);
+    printf("______________|__________|_______________|_______________|\n");
+    printf("\n");*/

@@ -47,9 +47,9 @@ void printBubbleResult(int sizeOfArray, Cell values, double avg, const double ar
         printf("| run %-5d | %-9.4f |\n", i + 1, arr[i]);
         printf("+-----------+-----------+\n");
     }
-    printf("run time Min:%f\n",values.min);
-    printf("run time Max:%f\n",values.max);
-    printf("run time Average:%f\n",avg);
+    printf("run time Min:%f\n", values.min);
+    printf("run time Max:%f\n", values.max);
+    printf("run time Average:%f\n", avg);
 }
 
 Cell getMinAndMax(const double arr[], int sizeOfArray) {
