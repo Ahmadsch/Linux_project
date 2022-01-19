@@ -14,7 +14,7 @@ void merge(int arr[], int start, int mid, int end);
  * Second subarray is arr[mid+1..end]
  * it compares the two subarray and whichever one is smaller,
  * is going to be placed in this temp array and finally it will
- * copy the temp array to the original array.
+ * copyArrayToList the temp array to the original array.
  *
  * \param int arr[]    The array to be sorted.
  * \param  int low     start index of the sub-array.
@@ -34,7 +34,7 @@ void merge(int arr[], int start, int mid, int end) {
     /* k is a tracker variable to keep track of the values that we put in the temp array */
     int k = 0;
 
-    /*linear time comparison, at the values in the left array and the pointer on the right array*/
+    /*linear time comparisonBubble, at the values in the left array and the pointer on the right array*/
     /*whichever one is smaller is going to be placed in this temp array*/
     /*if both of the subarray have elements, then sort them and finally merge them back*/
     while (i <= mid && j <= end) {
@@ -54,7 +54,7 @@ void merge(int arr[], int start, int mid, int end) {
     while (j <= end)
         tempArr[k++] = arr[j++];
 
-    /*copy the temp array to the original array*/
+    /*copyArrayToList the temp array to the original array*/
     for (i = start; i <= end; i++)
         arr[i] = tempArr[i - start];
 

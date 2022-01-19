@@ -18,7 +18,7 @@ void printBubbleResult(int sizeOfArray, Cell values, double avg, const double ar
 #define ARRAY_SIZE_2000 2000
 #define NUMBER_OF_LOOP 20
 
-void comparison() {
+void comparisonBubble() {
     double timeSpentBubble;
     double avgBubble;
     double holdResults[NUMBER_OF_LOOP];
@@ -38,7 +38,7 @@ void comparison() {
 }
 
 void printBubbleResult(int sizeOfArray, Cell values, double avg, const double arr[]) {
-    printf("comparison Bubble Sort\n");
+    printf("comparisonBubble Bubble Sort\n");
     printf("+-----------+-----------+\n");
     printf("| run order |  run time |\n");
     printf("+-----------+-----------+\n");

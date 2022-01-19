@@ -4,13 +4,13 @@
 
 
 int main() {
-    time_t t;
-    srand((unsigned )time(&t));
+    srand((unsigned int)time(NULL));
 
-    //callRunMeasureFunctions();
+
     //callSortFunctions();
-    comparison();
-
+    //callRunMeasureFunctions();
+    //comparisonBubble();
+    comparisonArrayList();
 }
 
 

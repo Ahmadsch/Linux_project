@@ -9,6 +9,11 @@ typedef enum {
     ASC, DEC, RAND
 } DATA_SET;
 
+typedef struct list_ {
+    int value;
+    struct list_ *next;
+} List;
+
 
 //merge sort
 void mergeSort(int arr[], int start, int end);
@@ -32,16 +37,34 @@ void swap(int *x, int *y);
 void createRandomNumber(int sizeOfArray, int arr[], DATA_SET dataSet);
 
 
-//
-void callRunMeasureFunctions();
-
+//call_sort_func.c
 void callSortFunctions();
 
-//
+void printArray(const int arr[], int arraySize);
+
+
+//measure_run_time.c
+void callRunMeasureFunctions();
+
 double measureCpuRunTime(void (*pFunction)(int [], int, int), int arr[], int sizeOfArr, SORT_MODE sortMode);
 
+double measureCpuRunTimeLinkedList(void (*pFunction)(List **), List **start);
+
+double measureCpuRunTimeInitArr(void (*pFunction)(int, int [], DATA_SET), int arr[], int sizeOfArr, DATA_SET dataSet);
+
+double
+measureCpuRunTimeInitList(void (*pFunction)(const int[], int, List **), const int arr[], int sizeOfArr, List **head);
+
+
+//comparisonBubble.c
+void comparisonBubble();
+
+
+//linked_list_insert.c
+void comparisonArrayList();
+
 //
-void comparison();
+
 
 
 #endif //LINUX_PROJECT_FUNC_H

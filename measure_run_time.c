@@ -116,6 +116,29 @@ double measureCpuRunTime(void (*pFunction)(int [], int, int), int arr[], int siz
     return timeSpent;
 }
 
+double measureCpuRunTimeLinkedList(void (*pFunction)(List **), List **start) {
+    clock_t begin = clock();
+    (*pFunction)(start);
+    clock_t end = clock();
+    double timeSpent = (double) (end - begin) / CLOCKS_PER_SEC;
+    return timeSpent;
+}
+
+double measureCpuRunTimeInitArr(void (*pFunction)(int, int [], DATA_SET), int arr[], int sizeOfArr, DATA_SET dataSet) {
+    clock_t begin = clock();
+    (*pFunction)(sizeOfArr, arr, dataSet);
+    clock_t end = clock();
+    double timeSpent = (double) (end - begin) / CLOCKS_PER_SEC;
+    return timeSpent;
+}
+double measureCpuRunTimeInitList(void (*pFunction)(const int[], int , List **), const int arr[], int sizeOfArr, List **head){
+    clock_t begin = clock();
+    (*pFunction)(arr, sizeOfArr, head);
+    clock_t end = clock();
+    double timeSpent = (double) (end - begin) / CLOCKS_PER_SEC;
+    return timeSpent;
+}
+
 void runMeasure_8() {
     int arrayQuick[ARRAY_SIZE_8];
     int arrayMerge[ARRAY_SIZE_8];
@@ -385,7 +408,7 @@ void resetArrays() {
 
     timeSpentBubble = measureCpuRunTime((void *) bubbleSort, array_32768, ARRAY_SIZE_32768, BUBBLE_SORT);
 
-    printResults(timeSpentQuick, timeSpentMerge, timeSpentInsert, timeSpentBubble, ARRAY_SIZE_32768);
+    printRunTimeArrListSort(timeSpentQuick, timeSpentMerge, timeSpentInsert, timeSpentBubble, ARRAY_SIZE_32768);
 
 */
 
