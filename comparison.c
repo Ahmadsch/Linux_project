@@ -6,13 +6,13 @@ typedef struct cell_ {
     double max;
 } Cell;
 
-void bubbleSortComparison(const int arr[], int sizeOfElem);
+static void bubbleSortComparison(const int arr[], int sizeOfElem);
 
-Cell getMinAndMax(const double arr[], int sizeOfArray);
+static Cell getMinAndMax(const double arr[], int numOfRun);
 
-double calculateAvg(const double arr[], int sizeOfArray);
+static double calculateAvg(const double arr[], int numOfRun);
 
-void printBubbleResult(int sizeOfArray, Cell values, double avg, const double arr[]);
+static void printBubbleResult(int sizeOfArray, Cell values, double avg, const double arr[]);
 
 
 #define ARRAY_SIZE_2000 2000
@@ -37,7 +37,7 @@ void comparisonBubble() {
     printBubbleResult(NUMBER_OF_LOOP, values, avgBubble, (const double *) holdResults);
 }
 
-void printBubbleResult(int sizeOfArray, Cell values, double avg, const double arr[]) {
+static void printBubbleResult(int sizeOfArray, Cell values, double avg, const double arr[]) {
     printf("comparisonBubble Bubble Sort\n");
     printf("+-----------+-----------+\n");
     printf("| run order |  run time |\n");
@@ -52,11 +52,11 @@ void printBubbleResult(int sizeOfArray, Cell values, double avg, const double ar
     printf("run time Average:%f\n", avg);
 }
 
-Cell getMinAndMax(const double arr[], int sizeOfArray) {
+static Cell getMinAndMax(const double arr[], int numOfRun) {
     Cell values;
     values.min = arr[0];
     values.max = arr[0];
-    for (int i = 1; i < sizeOfArray; i++) {
+    for (int i = 1; i < numOfRun; i++) {
         if (values.min > arr[i])
             values.min = arr[i];
         if (values.max < arr[i])
@@ -65,15 +65,15 @@ Cell getMinAndMax(const double arr[], int sizeOfArray) {
     return values;
 }
 
-double calculateAvg(const double arr[], int sizeOfArray) {
+static double calculateAvg(const double arr[], int numOfRun) {
     double avg = 0;
-    for (int i = 0; i < sizeOfArray; ++i) {
+    for (int i = 0; i < numOfRun; ++i) {
         avg += arr[i];
     }
-    return (avg / (float) sizeOfArray);
+    return (avg / (float) numOfRun);
 }
 
-void bubbleSortComparison(const int arr[], int sizeOfElem) {
+static void bubbleSortComparison(const int arr[], int sizeOfElem) {
     int tempArr[sizeOfElem];
     for (int i = 0; i < sizeOfElem; ++i) {
         tempArr[i] = arr[i];

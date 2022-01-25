@@ -6,11 +6,9 @@ typedef enum {
     ARRAY_SIZE_8 = 8, ARRAY_SIZE_16 = 16, ARRAY_SIZE_64 = 64
 } SIZE_MODE;
 
-void prepareSortFunctions(SORT_MODE sortMode, SIZE_MODE sizeMode);
+static void prepareSortFunctions(SORT_MODE sortMode, SIZE_MODE sizeMode);
 
-void printArray(const int arr[], int arraySize);
-
-bool isSorted(int sizeOfArray, const int arr[]);
+static bool isSorted(int sizeOfArray, const int arr[]);
 
 
 void callSortFunctions() {
@@ -30,7 +28,7 @@ void callSortFunctions() {
     prepareSortFunctions(BUBBLE_SORT, ARRAY_SIZE_64);
 }
 
-void prepareSortFunctions(SORT_MODE sortMode, SIZE_MODE sizeMode) {
+static void prepareSortFunctions(SORT_MODE sortMode, SIZE_MODE sizeMode) {
     if (sortMode == MERGE_SORT) {
         if (sizeMode == ARRAY_SIZE_8) {
             int arr[ARRAY_SIZE_8];
@@ -183,7 +181,7 @@ void printArray(const int arr[], int arraySize) {
     printf("\n\n");
 }
 
-bool isSorted(int sizeOfArray, const int arr[]) {
+static bool isSorted(int sizeOfArray, const int arr[]) {
     for (int i = 0; i < sizeOfArray; ++i) {
         for (int j = i + 1; j < sizeOfArray; ++j) {
             if (arr[i] > arr[j]) {

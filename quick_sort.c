@@ -2,7 +2,7 @@
 #include "func.h"
 
 
-int partition(int arr[], int low, int high);
+static int partition(int arr[], int low, int high);
 
 
 /** \file
@@ -22,7 +22,7 @@ int partition(int arr[], int low, int high);
  * \param  int high    last index of the sub-array .
  * \return i           the pivotIndex.
  */
-int partition(int arr[], int low, int high) {
+static int partition(int arr[], int low, int high) {
 
     int pivotIndex = low + rand() % (high - low);
     if (pivotIndex != high)

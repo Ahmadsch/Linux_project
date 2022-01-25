@@ -1,7 +1,6 @@
 #include "func.h"
 
-void merge(int arr[], int start, int mid, int end);
-
+static void merge(int arr[], int start, int mid, int end);
 
 
 /** \file
@@ -22,7 +21,7 @@ void merge(int arr[], int start, int mid, int end);
  * \param  int high    last index of the sub-array .
  * \return i           the pivotIndex.
  */
-void merge(int arr[], int start, int mid, int end) {
+static void merge(int arr[], int start, int mid, int end) {
     int sizeOfTempArr = (end - start) + 1;
     /* build temp arrays to avoid modifying the original contents  */
     int tempArr[sizeOfTempArr];

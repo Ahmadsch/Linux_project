@@ -30,25 +30,25 @@ double timeSpentBubble;
 //int array_100000[ARR_SIZE_100000];
 //#define ARR_SIZE_100000 100000
 
-void resetArrays();
+static void resetArrays();
 
-void initArray(DATA_SET dataSet);
+static void initArray(DATA_SET dataSet);
 
-void printResults(int arraySize);
+static void printResults(int arraySize);
 
-void runMeasure_8();
+static void runMeasure_8();
 
-void runMeasure_32();
+static void runMeasure_32();
 
-void runMeasure_128();
+static void runMeasure_128();
 
-void runMeasure_512();
+static void runMeasure_512();
 
-void runMeasure_2048();
+static void runMeasure_2048();
 
-void runMeasure_8192();
+static void runMeasure_8192();
 
-void runMeasure_32768();
+static void runMeasure_32768();
 
 
 void callRunMeasureFunctions() {
@@ -94,7 +94,7 @@ void callRunMeasureFunctions() {
 
 }
 
-void initArray(DATA_SET dataSet) {
+static void initArray(DATA_SET dataSet) {
     createRandomNumber(ARRAY_SIZE_8, array_8, dataSet);
     createRandomNumber(ARRAY_SIZE_32, array_32, dataSet);
     createRandomNumber(ARRAY_SIZE_128, array_128, dataSet);
@@ -131,7 +131,9 @@ double measureCpuRunTimeInitArr(void (*pFunction)(int, int [], DATA_SET), int ar
     double timeSpent = (double) (end - begin) / CLOCKS_PER_SEC;
     return timeSpent;
 }
-double measureCpuRunTimeInitList(void (*pFunction)(const int[], int , List **), const int arr[], int sizeOfArr, List **head){
+
+double
+measureCpuRunTimeInitList(void (*pFunction)(const int[], int, List **), const int arr[], int sizeOfArr, List **head) {
     clock_t begin = clock();
     (*pFunction)(arr, sizeOfArr, head);
     clock_t end = clock();
@@ -139,7 +141,7 @@ double measureCpuRunTimeInitList(void (*pFunction)(const int[], int , List **), 
     return timeSpent;
 }
 
-void runMeasure_8() {
+static void runMeasure_8() {
     int arrayQuick[ARRAY_SIZE_8];
     int arrayMerge[ARRAY_SIZE_8];
     int arrayInsert[ARRAY_SIZE_8];
@@ -163,7 +165,7 @@ void runMeasure_8() {
 }
 
 
-void runMeasure_32() {
+static void runMeasure_32() {
     int arrayQuick[ARRAY_SIZE_32];
     int arrayMerge[ARRAY_SIZE_32];
     int arrayInsert[ARRAY_SIZE_32];
@@ -187,7 +189,7 @@ void runMeasure_32() {
     printResults(ARRAY_SIZE_32);
 }
 
-void runMeasure_128() {
+static void runMeasure_128() {
     int arrayQuick[ARRAY_SIZE_128];
     int arrayMerge[ARRAY_SIZE_128];
     int arrayInsert[ARRAY_SIZE_128];
@@ -211,7 +213,7 @@ void runMeasure_128() {
     printResults(ARRAY_SIZE_128);
 }
 
-void runMeasure_512() {
+static void runMeasure_512() {
     int arrayQuick[ARRAY_SIZE_512];
     int arrayMerge[ARRAY_SIZE_512];
     int arrayInsert[ARRAY_SIZE_512];
@@ -238,7 +240,7 @@ void runMeasure_512() {
     printResults(ARRAY_SIZE_512);
 }
 
-void runMeasure_2048() {
+static void runMeasure_2048() {
     int arrayQuick[ARRAY_SIZE_2048];
     int arrayMerge[ARRAY_SIZE_2048];
     int arrayInsert[ARRAY_SIZE_2048];
@@ -262,7 +264,7 @@ void runMeasure_2048() {
     printResults(ARRAY_SIZE_2048);
 }
 
-void runMeasure_8192() {
+static void runMeasure_8192() {
     int arrayQuick[ARRAY_SIZE_8192];
     int arrayMerge[ARRAY_SIZE_8192];
     int arrayInsert[ARRAY_SIZE_8192];
@@ -286,7 +288,7 @@ void runMeasure_8192() {
     printResults(ARRAY_SIZE_8192);
 }
 
-void runMeasure_32768() {
+static void runMeasure_32768() {
     int arrayQuick[ARRAY_SIZE_32768];
     int arrayMerge[ARRAY_SIZE_32768];
     int arrayInsert[ARRAY_SIZE_32768];
@@ -310,7 +312,7 @@ void runMeasure_32768() {
     printResults(ARRAY_SIZE_32768);
 }
 
-void printResults(int arraySize) {
+static void printResults(int arraySize) {
 
     printf("Array Size: %d\n", arraySize);
     printf("+------------+-----------+\n");
@@ -327,7 +329,7 @@ void printResults(int arraySize) {
     printf("+------------+-----------+\n\n");
 }
 
-void resetArrays() {
+static void resetArrays() {
     memset(array_8, 0, sizeof(array_8));
     memset(array_32, 0, sizeof(array_32));
     memset(array_128, 0, sizeof(array_128));
